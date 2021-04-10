@@ -20,11 +20,7 @@ function App() {
         <Route path="/AddMovie" exact>
           <AddMovie />
         </Route>
-        
-        <Link to ='/AddMovie'>
-         <button>Add Movie</button>
-        </Link>
-
+     
         {/* Details page */}
 
         {/* Add Movie page */}
