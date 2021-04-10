@@ -37,14 +37,14 @@ CHECKLIST:
 
 --Add Movie Page--
 
-[] Create `input field` for movie title
+[x] Create `input field` for movie title
 
-[] Create `input field`for movie poster image URL
+[x] Create `input field`for movie poster image URL
 
-[] Create a `text area` for the movie description
+[x] Create a `textarea` for the movie description
 
-[] Create a `dropdown menu` for movie genres (use genres from db)
+[x] Create a `dropdown menu` for movie genres (use genres from db)
 
-[] Create a `Cancel button` that sends user back to Home/List Page
+[x] Create a `Cancel button` that sends user back to Home/List Page
 
 [] Create `Save button` which updates the title and description in the database and brings user back to Home/List page (now also displaying new movie)
