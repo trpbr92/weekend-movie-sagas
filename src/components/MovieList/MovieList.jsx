@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './MovieList.css'
 
 function MovieList() {
@@ -11,6 +12,10 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    const handleMovieDetails = ()=>{
+        console.log('in handleMovieDetails');
+    }
+
     return (
         <main>
             <h1>MovieList</h1>
@@ -19,7 +24,9 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
+                            <Link to ='/MovieDetails'>
+                            <img src={movie.poster} alt={movie.title} className="poster" onClick={handleMovieDetails}/>
+                            </Link>
                         </div>
                     );
                 })}

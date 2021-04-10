@@ -14,7 +14,15 @@ CHECKLIST:
 
 --Features--
 
-[] Create inventory of existing code:
+[x] Create inventory of existing code:
+
+    - genre.router.js for GET call to get all genres from db
+    
+    - movie.router.js for POST to create new movie & adding genre to new movie
+
+    - MovieList.jsx displays movie title and poster from store
+
+    - index.js contains axios GET call in SAGA & store
 
 [] When movie poster is clicked user should be brought to `/details` view for that movie.
 
