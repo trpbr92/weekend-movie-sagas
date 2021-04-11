@@ -12,11 +12,6 @@ function MovieList(props) {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    // const handleMovieDetails = (movie) =>{
-    //     props.setDetail({id: movie.id, description: movie.description, title: movie.title, poster: movie.poster});
-    //     console.log('in handleMovieDetails');
-    // }
-
     return (
         <main>
             <h1>MovieList</h1>
@@ -32,6 +27,9 @@ function MovieList(props) {
                     );
                 })}
             </section>
+            <Link to ="/AddMovie">
+            <button>Add Movie</button>
+            </Link>
         </main>
 
     );

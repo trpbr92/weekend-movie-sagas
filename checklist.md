@@ -24,7 +24,7 @@ CHECKLIST:
 
     - index.js contains axios GET call in SAGA & store
 
-[] When movie poster is clicked user should be brought to `/details` view for that movie.
+[x] When movie poster is clicked user should be brought to `/details` view for that movie.
 
 [] Create `Add Movie` page and create a way to get there
 
