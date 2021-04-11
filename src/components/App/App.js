@@ -3,18 +3,19 @@ import './App.css';
 import MovieList from '../MovieList/MovieList'
 import AddMovie from '../AddMovie/AddMovie';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import {useState} from 'react';
 
 function App() {
+  const [detail, setDetail] = useState({});
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
       <Router>        
         <Route path="/" exact>
-          <MovieList />
+          <MovieList setDetail = {setDetail}/>
         </Route>
 
-        <Route path="/MovieDetails" exact>
-          <MovieDetails />
+        <Route path="/MovieDetails/:id" render = {(props)=><MovieDetails id = {props.match.params.id}/>} exact>
         </Route>
         
         <Route path="/AddMovie" exact>

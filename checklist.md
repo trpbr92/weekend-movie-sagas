@@ -48,3 +48,5 @@ CHECKLIST:
 [x] Create a `Cancel button` that sends user back to Home/List Page
 
 [] Create `Save button` which updates the title and description in the database and brings user back to Home/List page (now also displaying new movie)
+
+SELECT * FROM movies JOIN genres ON movies.id = genres.id ORDER BY genres.id ASC;
