@@ -26,14 +26,14 @@ CHECKLIST:
 
 [x] When movie poster is clicked user should be brought to `/details` view for that movie.
 
-[] Create `Add Movie` page and create a way to get there
+[x] Create `Add Movie` page and create a way to get there
 
 
 --Details Page--
 
-[] Show all details, including all genres for each movie (data is stored in redux)
+[x] Show all details, including all genres for each movie (data is stored in redux)
 
-[] Create a `Back to List` button that brings user back to Home/List Page
+[x] Create a `Back to List` button that brings user back to Home/List Page
 
 --Add Movie Page--
 

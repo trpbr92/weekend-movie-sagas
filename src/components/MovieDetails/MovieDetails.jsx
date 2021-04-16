@@ -14,7 +14,6 @@ const dispatch = useDispatch();
     }).catch((err)=>{
         alert(err);
     })
-
     }, []);
 
 console.log(props);
@@ -24,7 +23,7 @@ console.log(props);
         {details.map(detail => (
             <>
                 <p key = {detail.id}>{detail.name}</p>
-             </>       
+            </>       
                     ))}
             <p>{details[0]?.description}</p>
         </div>

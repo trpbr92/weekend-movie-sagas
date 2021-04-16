@@ -15,8 +15,19 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRES', fetchAllGenres);
+    yield takeEvery('SEND_MOVIE', addMovie);
 }
 
+function* addMovie(action){
+    console.log('in addMovie:', action.payload);
+    try{
+        let response = yield axios.post('/api/movie', action.payload);
+        console.log('Adding movie to database', response.data);
+        yield put({type: 'ADD_MOVIE', payload: action.payload});
+    } catch{
+        console.log('error adding movie');
+    }
+}
 
 
 function* fetchAllMovies() {
@@ -51,6 +62,9 @@ const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
             return action.payload;
+        case 'ADD_MOVIE':
+            console.log('add movie reducer', action.payload);
+            return [...state, action.payload]    
         default:
             return state;
     }
@@ -90,7 +104,6 @@ const storeInstance = createStore(
         movies,
         genres,
         detail,
-        setTitle
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

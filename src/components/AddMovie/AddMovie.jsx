@@ -1,36 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 function AddMovie(){
+const dispatch = useDispatch();
+const history = useHistory();
 
+    const [title, setTitle] = useState('');
+    const [poster, setPoster] = useState('');
+    const [description, setDescription] = useState('');
     const [genre, setGenre] = useState('');
 
-        const handleChangeTitle = (event) => {
-        console.log('in handleChangeTitle:', event.target.value);
-        dispatch({type: 'SET_TITLE'});
-        setGenre(event.target.value);
+const sendMovie = () =>{
+    const movie = {
+        title: title,
+        poster: poster,
+        description: description,
+        genre: genre
     }
+    dispatch({type: 'SEND_MOVIE', payload: movie});
+    history.push('/');
 
-            const handleChangeURL = (event) => {
-        console.log('in handleChangeURL', event.target.value);
-        //dispatch({type: 'setURL'});
-        setGenre(event.target.value);
-    }
-
-                const handleChangeDescription = (event) => {
-        console.log('in handleChangeDescription', event.target.value);
-        //dispatch({type: 'setDescription'});
-        setGenre(event.target.value);
-    }
-
-
-    const handleChangeGenre = (event) => {
-        console.log('in handleChangeGenre:', event.target.value);
-        //dispatch({type: 'setGenre'});
-        setGenre(event.target.value);
-    }
+}
 
     
 
@@ -38,35 +30,33 @@ function AddMovie(){
         <main>
         <h1>Add Movie</h1>
         <div>
-        <input type="text" placeholder="Title" onChange={handleChangeTitle}/>
-        <input type="text" placeholder="URL" onChange={handleChangeTitle}/>
-        <textarea onChange={handleChangeDescription} name="Description" id="description" cols="30" rows="5">Description</textarea>
-        <select onChange={handleChangeGenre}>
-            <option>Genres</option>
-            <option>Adventure</option>
-            <option>Animated</option>
-            <option>Biographical</option>
-            <option>Comedy</option>
-            <option>Disaster</option>
-            <option>Drama</option>
-            <option>Epic</option>
-            <option>Fantasy</option>
-            <option>Musical</option>
-            <option>Romantic</option>
-            <option>Science Fiction</option>
-            <option>Space-Opera</option>
-            <option>Superhero</option>
+        <input onChange={(event) => setTitle(event.target.value)} value={title} type="text" placeholder="Title"/>
+        <input onChange={(event) => setPoster(event.target.value)} value={poster} type="text" placeholder="URL"/>
+        <textarea onChange={(event)=> setDescription(event.target.value)} value={description} name="Description" id="description" cols="30" rows="5">Description</textarea>
+        <select onChange={(event)=> setGenre(event.target.value)} value={genre}>
+            <option selected disabled>Genres</option>
+            <option value={1}>Adventure</option>
+            <option value={2}>Animated</option>
+            <option value={3}>Biographical</option>
+            <option value={4}>Comedy</option>
+            <option value={5}>Disaster</option>
+            <option value={6}>Drama</option>
+            <option value={7}>Epic</option>
+            <option value={8}>Fantasy</option>
+            <option value={9}>Musical</option>
+            <option value={10}>Romantic</option>
+            <option value={11}>Science Fiction</option>
+            <option value={12}>Space-Opera</option>
+            <option value={13}>Superhero</option>
         </select>
 
     <Link to='/'>
         <button>Cancel</button>
     </Link>
-    <button>Save</button>
+    <button onClick={sendMovie}>Save</button>
 
         </div>
-
         </main>
-        
     )
 }
 
